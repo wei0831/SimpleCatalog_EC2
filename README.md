@@ -20,7 +20,7 @@ Connect to Server
 ssh -i ~/.ssh/udacity_key.rsa root@52.24.48.10
 ```
 
-Create New User in the server machine
+Create New User : grader
 ```
 sudo adduser grader
 ```
@@ -53,10 +53,17 @@ ssh-keygen your_key
 cat ~/.ssh/your_key.pub
 ```
 
+Check if the user is successfully configured
+```
+ssh -i ~/.ssh/your_key grader@52.24.48.10
+```
+
 Change SSH port from 22 to 2200
 ```
 sudo vi /etc/ssh/sshd_config
 # Save by entering :wq command
+# Later on you need to use the following to ssh
+ssh -i ~/.ssh/udacity_key.rsa root@52.24.48.10 -p 2200
 ```
 
 Config UFW (firewall)
@@ -119,7 +126,12 @@ sudo a2ensite catalog-app.conf
 service apache2 reload
 ```
 
-Change ownership of the project folder
+Create a user to manage the app
+```
+sudo adduser catalog-app
+```
+
+Change ownership of the project
 ```
 cd /var/www/
 chown -R catalog_app. catalog_app

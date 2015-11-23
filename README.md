@@ -132,23 +132,34 @@ Create New Role
 CREATE USER catalog_app;
 ```
 
-Create new database and asign owner to catalog_app
+Create new database and assign the owner
 ```
 CREATE DATABASE catalog OWNER catalog_app;
 ```
 
 Check
 ```
-# Check the newly created database
+# List all the roles
+\due
+# List all the database
 \list
 # exit
 \q
 
-# Change user and see if can access the database
+# Change user and see if the user can access the database
 su - catalog_app
 psql -d catalog
 ```
 
 ## Resources
-Guild for set up mod_wsgi(Apache) with Flask
+- Guild for set up mod_wsgi(Apache) with Flask  
 [http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/)
+
+- Details about Apache2 Config File  
+[https://httpd.apache.org/docs/2.2/configuring.html](https://httpd.apache.org/docs/2.2/configuring.html)
+
+- Timezone Change  
+[https://wiki.debian.org/TimeZoneChanges](https://wiki.debian.org/TimeZoneChanges)
+
+- Postgres Related  
+[http://www.postgresql.org/docs/9.3/static/admin.html](http://www.postgresql.org/docs/9.3/static/admin.html)  [http://www.postgresql.org/docs/9.3/static/reference.html](http://www.postgresql.org/docs/9.3/static/reference.html)

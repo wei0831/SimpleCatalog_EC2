@@ -1,0 +1,58 @@
+<!--
+Date: 11/13/2015
+Author: Jack Chang (wei0831@gmail.com)
+-->
+<nav class="navbar navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">{{APPLICATION_NAME}}</a>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        {% if session.gplus_id: %}
+        <li>
+          <a>
+            {{session.username}}
+          </a>
+        </li>
+        <li>
+          <a href="{{url_for('gdisconnect')}}" data-callback="logoutCallback">
+            Logout
+          </a>
+        </li>
+        {% else:%}
+        <li>
+          <div id="signinButton" data-csrftoken="{{csrf_token()}}">
+            <span class="g-signin" data-accesstype="offline" data-approvalprompt="force" data-callback="signInCallback" data-clientid="60852957499-i57dluqr4hin862lptckth7csjdgqn3h.apps.googleusercontent.com" data-cookiepolicy="single_host_origin" data-redirecturi="postmessage" data-scope="openid email" ></span>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+  </div>
+</nav>
+
+<script type="text/javascript">
+  function signInCallback(authResult) {
+    if (authResult['code']) {
+      $.ajaxSetup({
+            crossDomain: false,
+            beforeSend: function (xhr, settings) {
+                if (!(/^(GET|HEAD|OPTIONS|TRACE)$/.test(settings.type))) {
+                    xhr.setRequestHeader('X-CSRFToken', $('#signinButton').data('csrftoken'));
+                }
+            }
+        });
+      $.ajax({
+        type: 'POST',
+        url: '/gconnect',
+        processData: false,
+        contentType: 'applciation/octet-stream; charset=utf-8',
+        data: authResult['code'],
+        success: function(result) {
+          window.location.href = "/";
+        }
+      })
+    }
+  }
+</script>

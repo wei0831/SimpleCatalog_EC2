@@ -1,0 +1,32 @@
+.navbar-custom {
+  background-color: #191e60;
+  border-radius: 0px;
+}
+.navbar-custom .navbar-brand{
+  font-size: 25px;
+  position: relative;
+  left: 25px;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+.navbar li a:hover{
+  background-color: #191e60;
+}
+#signinButton{
+  margin: 10px 10px 0px 10px;
+}
+.panel-body h3{
+  margin-top: 0px;
+  color: #1e246e;
+  font-size: 25px;
+  font-weight: bold;
+}
+.panel-body a{
+  color: red;
+  font-weight: bold;
+}
+.panel-body .category-text{
+  color: grey;
+}

@@ -1,0 +1,37 @@
+<!--
+Date: 11/13/2015
+Author: Jack Chang (wei0831@gmail.com)
+-->
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="panel panel-default" style="width:80%;margin:auto;">
+  <div class="panel-body">
+    <h3>Edit Item</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <form action="#" method="post">
+          <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" name="title" type="text" value="{{item.title}}" required>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" name="description" type="text" value="{{item.description}}" required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="category_id">
+              {% for category in categories: %}
+              <option value="{{category.id}}" {%if item.category_id == category.id:%}selected{% endif %}>{{category.name}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+          <input type="submit" class="form-control btn btn-primary" value="Update Item">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

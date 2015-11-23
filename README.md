@@ -1,5 +1,19 @@
 # Simple Catalog on Amazon EC2 Ubuntu
 
+## Sever Info
+- IP: 52.24.48.10
+- URL: [http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/](http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/)
+
+## Requirements
+- Python 2.7
+- [Flask](http://flask.pocoo.org/)
+- [Flask-SeaSurf](https://flask-seasurf.readthedocs.org/en/latest/)
+- [dicttoxml](https://github.com/quandyfactory/dicttoxml)
+- [SQLAlchemy](http://www.sqlalchemy.org/)
+- [Oauth2client](https://github.com/google/oauth2client)
+- [Apache2](https://httpd.apache.org/)
+- [mod_wsgi](https://code.google.com/p/modwsgi/)
+
 ## To Run
 Connect to Server
 ```
@@ -99,6 +113,7 @@ Set up apache config
 ```
 cd catalog_app
 sudo cp catalog_app.conf /etc/apache2/sites-available/catalog-app.conf
+
 sudo a2dissite 000-default.conf
 sudo a2ensite catalog-app.conf
 service apache2 reload

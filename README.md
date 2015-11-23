@@ -20,7 +20,7 @@ grader ALL=(ALL) NOPASSWD:ALL
 # Save by entering :wq command
 ```
 
-Add public key we generated earlier to the grader's authorized keys
+Add public key to the grader
 ```
 # Change user to grader
 su - grader
@@ -35,13 +35,14 @@ vi ~/.ssh/authorized_keys
 # Generate Key at local
 ssh-keygen your_key
 
-# copy and paste your public key into the document
+# copy and paste your public key into the document "authorized_keys"
 cat ~/.ssh/your_key.pub
 ```
 
 Change SSH port from 22 to 2200
 ```
 sudo vi /etc/ssh/sshd_config
+# Save by entering :wq command
 ```
 
 Config UFW (firewall)
@@ -63,6 +64,12 @@ Config Local timezone to UTC
 ```
 sudo dpkg-reconfigure tzdata
 # Select None of the above / UTC
+```
+
+Update Packages
+```
+sudo apt-get update
+sudo apt-get upgrade
 ```
 
 Install Packages
@@ -106,3 +113,42 @@ chmod 600 catalog_app/catalog/catalog.db
 
 Now, go to [http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/](http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/)  
 Everything should be all set up correctly.
+
+
+## Optional (If postgresql were used for the app)
+
+Install
+```
+sudo apt-get install postgresql python-psycopg2
+```
+
+Conncect to postgresql
+```
+sudo -u postgres psql
+```
+
+Create New Role
+```
+CREATE USER catalog_app;
+```
+
+Create new database and asign owner to catalog_app
+```
+CREATE DATABASE catalog OWNER catalog_app;
+```
+
+Check
+```
+# Check the newly created database
+\list
+# exit
+\q
+
+# Change user and see if can access the database
+su - catalog_app
+psql -d catalog
+```
+
+## Resources
+Guild for set up mod_wsgi(Apache) with Flask
+[http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/)

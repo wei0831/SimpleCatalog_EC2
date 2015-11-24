@@ -2,6 +2,7 @@
 
 ## Sever Info
 - IP: 52.24.48.10
+- SSH port: 2200
 - URL: [http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/](http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/)
 
 ## Requirements

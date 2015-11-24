@@ -148,7 +148,7 @@ Now, go to [http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/](http://ec2-
 Everything should be all set up correctly.
 
 
-## Optional (If postgresql were used for the app)
+## Optional (If postgresql was used for the app)
 
 Install
 ```
@@ -185,6 +185,8 @@ psql -d catalog
 ```
 
 ## Resources
+- Manage User Accounts on Instance on Amazon EC2  
+[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys)
 - Guild for set up mod_wsgi(Apache) with Flask  
 [http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/)
 

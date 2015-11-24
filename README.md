@@ -116,16 +116,6 @@ cd /var/www/
 git clone https://github.com/wei0831/catalog_app.git
 ```
 
-Set up apache config
-```
-cd catalog_app
-sudo cp catalog_app.conf /etc/apache2/sites-available/catalog-app.conf
-
-sudo a2dissite 000-default.conf
-sudo a2ensite catalog-app.conf
-service apache2 reload
-```
-
 Create a user to manage the app
 ```
 sudo adduser catalog-app
@@ -136,6 +126,22 @@ Change ownership of the project
 cd /var/www/
 chown -R catalog_app. catalog_app
 chmod 600 catalog_app/catalog/catalog.db
+```
+
+Set up apache config
+```
+cd catalog_app
+sudo cp catalog_app.conf /etc/apache2/sites-available/catalog-app.conf
+
+sudo a2dissite 000-default.conf
+sudo a2ensite catalog-app.conf
+service apache2 reload
+```
+
+Do database initialize once
+```
+cd /var/www/catalog_app/catalog
+python database_init.py
 ```
 
 Now, go to [http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/](http://ec2-52-24-48-10.us-west-2.compute.amazonaws.com/)  

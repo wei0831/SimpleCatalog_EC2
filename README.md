@@ -62,6 +62,8 @@ Change SSH port from 22 to 2200
 ```
 sudo vi /etc/ssh/sshd_config
 # Save by entering :wq command
+# Restart ssh
+service ssh restart
 # Later on you need to use the following to ssh
 ssh -i ~/.ssh/udacity_key.rsa root@52.24.48.10 -p 2200
 ```
@@ -184,6 +186,24 @@ su - catalog_app
 psql -d catalog
 ```
 
+## Optional - Tools
+
+##### [Glances](https://pypi.python.org/pypi/Glances) - A cross-platform curses-based monitoring tool
+```
+sudo apt-get install glances
+```
+
+##### Add auto update to cron weekly
+```
+sudo cp /var/www/catalog_app/autoupdate /etc/cron.weekly/autoupdate
+```
+
+#### Tiger - Audit system security
+```
+sudo apt-get install tiger
+sudo tiger
+```
+
 ## Resources
 - Manage User Accounts on Instance on Amazon EC2  
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys)
@@ -200,3 +220,6 @@ psql -d catalog
 - Postgres Related  
 [http://www.postgresql.org/docs/9.3/static/admin.html](http://www.postgresql.org/docs/9.3/static/admin.html)  
 [http://www.postgresql.org/docs/9.3/static/reference.html](http://www.postgresql.org/docs/9.3/static/reference.html)
+
+- Ubuntu autoupdate  
+[https://help.ubuntu.com/community/AutoWeeklyUpdateHowTo](https://help.ubuntu.com/community/AutoWeeklyUpdateHowTo)

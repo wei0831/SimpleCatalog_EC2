@@ -187,14 +187,16 @@ psql -d catalog
 ## Resources
 - Manage User Accounts on Instance on Amazon EC2  
 [http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html#edit_auth_keys)
+
+- Timezone Change  
+[https://wiki.debian.org/TimeZoneChanges](https://wiki.debian.org/TimeZoneChanges)
+
 - Guild for set up mod_wsgi(Apache) with Flask  
 [http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/](http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/)
 
 - Details about Apache2 Config File  
 [https://httpd.apache.org/docs/2.2/configuring.html](https://httpd.apache.org/docs/2.2/configuring.html)
 
-- Timezone Change  
-[https://wiki.debian.org/TimeZoneChanges](https://wiki.debian.org/TimeZoneChanges)
-
 - Postgres Related  
-[http://www.postgresql.org/docs/9.3/static/admin.html](http://www.postgresql.org/docs/9.3/static/admin.html)  [http://www.postgresql.org/docs/9.3/static/reference.html](http://www.postgresql.org/docs/9.3/static/reference.html)
+[http://www.postgresql.org/docs/9.3/static/admin.html](http://www.postgresql.org/docs/9.3/static/admin.html)  
+[http://www.postgresql.org/docs/9.3/static/reference.html](http://www.postgresql.org/docs/9.3/static/reference.html)

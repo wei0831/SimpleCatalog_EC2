@@ -15,17 +15,17 @@
 - [mod_wsgi](https://code.google.com/p/modwsgi/)
 
 ## To Run
-Connect to Server
+Connect to server
 ```
 ssh -i ~/.ssh/udacity_key.rsa root@52.24.48.10
 ```
 
-Create New User : grader
+Create new user : grader
 ```
 sudo adduser grader
 ```
 
-Add User grader to sudoers
+Add user grader to sudoers
 ```
 sudo vi /etc/sudoers.d/grader
 
@@ -150,7 +150,7 @@ Everything should be all set up correctly.
 
 ## Optional (If postgresql was used for the app)
 
-Install
+Install PostgreSQL and python adapter
 ```
 sudo apt-get install postgresql python-psycopg2
 ```
@@ -160,7 +160,7 @@ Conncect to postgresql
 sudo -u postgres psql
 ```
 
-Create New Role
+Create new Role
 ```
 CREATE USER catalog_app;
 ```
